@@ -1,0 +1,27 @@
+#---------------------------------#
+#  Build Image                    #
+#---------------------------------#
+image: Visual Studio 2017
+
+#---------------------------------#
+#  Build Script                   #
+#---------------------------------#
+build_script:
+  - ps: .\build.ps1
+
+# Tests
+test: off
+
+#---------------------------------#
+#        Branches to build        #
+#---------------------------------#
+branches:
+  # Whitelist
+  only:
+    - master
+
+#---------------------------------#
+#  Build Cache                    #
+#---------------------------------#
+cache:
+- tools -> build.cake, tools\packages.config
